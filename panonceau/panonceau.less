@@ -1,0 +1,92 @@
+html {
+	font-family: arial;
+	font-size: 18px;
+}
+
+body {
+	margin: 0;
+}
+
+form {
+	background-color: blanchedalmond;
+	padding: 1em;
+}
+
+div {
+	zzzborder: 1px solid black;
+}
+
+div.page {
+	width: 8.5in;
+	height: 11in;
+
+	&,
+	& * {
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+	}
+
+	& div {}
+
+	& > div.cote {
+		box-sizing: border-box;
+		flex: 1 1 0;
+
+		&:first-child {
+			border-top: 1px solid hsl(0, 0%, 90%);
+			transform: rotate(180deg);
+
+		}
+
+
+		& div.trait {
+			border-top: 1px solid hsl(0, 0%, 90%);
+			flex: 1 1 0;
+			justify-content: flex-end;
+
+			&::before {
+				align-self: center;
+				display: block;
+				content: "";
+				flex: 0 0 50%;
+				border-right: 1px dashed hsl(0, 0%, 50%);
+			}
+		}
+	}
+	& div.texte {
+		font-size: 5em;
+		flex: 1 1 0;
+		line-height: .9;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-evenly;
+
+		& * {
+			justify-content: space-between;
+		}
+	}
+}
+
+@page {
+	size: 8.5in 11in;
+	margin: 0;
+}
+
+@media print {
+	form {
+		display: none;
+	}
+}
+
+@media screen {
+	body {
+		background-color: #036;
+		margin: 1em;
+	}
+
+	div.page {
+		background-color: white;
+		margin: 1em auto;
+	}
+}
