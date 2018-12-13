@@ -1,0 +1,93 @@
+@import url("../eraser/style.css");
+@media print {
+	@page {
+		margin:0;
+	}
+}
+@media all {
+	body {
+		margin:0;
+		padding:0;
+		div.page {
+			font-size:48px;
+			width:11in;
+			height:8.5in;
+			display: flex;
+			flex-direction: column;
+			& > * {
+				flex: 1 0 0;
+				display: flex;
+				border-bottom: 1px dashed #DDD;
+				&:last-child {
+					border:none;
+				}
+				& > * {
+					flex: 1 0 0;
+					display:flex;
+					border-right: 1px dashed #DDD;
+					flex-direction: column;
+					align-items: center;
+					justify-content: space-around;
+					&:nth-child(even) {
+						transform:rotate(180deg);
+						border-right: none;
+						border-left: 1px dashed #DDD;
+					}
+					&:last-child {
+						border:none;
+						flex: 0 0 2.5in;
+					}
+				}
+			}
+		}
+		&.portrait {
+			page: portrait;
+			div.page {
+				width:8.5in;
+				height:11in;
+			}
+		}
+		&.paysage {
+			/* Ce sont les valeurs par défaut */
+		}
+	}
+	h1,h2,h3,h4,h5,h6 {
+		margin:0;
+	}
+	div.interface {
+
+	}
+	div.page {
+		font-family:eraser, arial black;
+	}
+	td {
+		border:1px solid #DDD;
+		box-sizing:border-box;
+		text-align:center;
+		vertical-align: middle;
+		line-height: 1em;
+		&.cote {
+			width:4.25in;
+			& + td.cote {
+				transform:rotate(180deg);
+			}
+		}
+	}
+}
+@media screen {
+	body {
+		zzzbackground-color: black;
+	}
+	div.interface {
+		zzzbackground-color: white;
+	}
+	div.page {
+		margin:1em;
+		box-shadow: .2em .2em .6em rgba(0,0,0,.5);
+	}
+}
+@media print {
+	div.options {
+		display:none;
+	}
+}
